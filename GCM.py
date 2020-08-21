@@ -1,3 +1,8 @@
+# Universidad del Valle de Guatemala
+# Cifrado de información 2020 2
+# Grupo 7
+# Implementación GCM
+
 import os
 
 from cryptography.hazmat.backends import default_backend
