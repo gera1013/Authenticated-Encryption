@@ -22,7 +22,7 @@ def encryption(header, data, key):
     json_v = [ b64encode(x).decode('utf-8') for x in (cipher.nonce, header, ciphertext, tag) ]
     return json.dumps(dict(zip(json_k, json_v)))
 
-def decryption(json_input):
+def decryption(json_input, key):
     try:
         b64 = json.loads(json_input)
         json_k = [ 'nonce', 'header', 'ciphertext', 'tag' ]
@@ -39,5 +39,5 @@ data = b"Mensaje secreto"
 key = get_random_bytes(16)
 encryptedMessage = encryption(header,data,key)
 print(encryptedMessage)
-decryptedMessage = decryption(encryptedMessage)
+decryptedMessage = decryption(encryptedMessage, key)
 print(decryptedMessage)
